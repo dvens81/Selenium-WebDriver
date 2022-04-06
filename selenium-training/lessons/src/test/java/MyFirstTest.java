@@ -17,7 +17,7 @@ public class MyFirstTest {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    // Явное ожидание
+    // Явное ожидание появления элемента
 //    public boolean isElementPresent (By locator) {
 //        try {
 //            wait.until((WebDriver d) -> d.findElement(locator));
@@ -30,7 +30,7 @@ public class MyFirstTest {
     @Before
     public void  start() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание. Ждет, пока появится элемент
         //wait = new WebDriverWait(driver,10);
     }
 
