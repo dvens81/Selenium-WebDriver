@@ -2,6 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,10 +17,20 @@ public class MyFirstTest {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    // Явное ожидание
+//    public boolean isElementPresent (By locator) {
+//        try {
+//            wait.until((WebDriver d) -> d.findElement(locator));
+//            return true;
+//    } catch (TimeoutException ex) {
+//        return false;
+//        }
+//    }
+
     @Before
     public void  start() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание
         //wait = new WebDriverWait(driver,10);
     }
 
