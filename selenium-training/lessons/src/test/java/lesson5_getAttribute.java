@@ -25,15 +25,18 @@ public class lesson5_getAttribute {
 
         driver.get("http://localhost/litecart/en/");
 
-        String a = driver.findElement(By.cssSelector("#breadcrumbs a")).getAttribute("href");
-        System.out.println("Значение свойства href = " + a);
+        String attr1 = driver.findElement(By.cssSelector("#breadcrumbs a")).getAttribute("href");
+        System.out.println("Значение свойства href = " + attr1);
 
-        String a2 = driver.findElement(By.cssSelector("div.content h3")).getCssValue("color");
-        System.out.println("Значение свойства color = " + a2);
+        driver.get("http://localhost/litecart/en/regional_settings"); //Селектор находится во фрейме
+        String attr2 = driver.findElement(By.cssSelector("[name=currency_code] [value=USD]")).getAttribute("selected");
+        System.out.println("Значение свойства selected = " + attr2);
 
-        //Селектор невидимый. Находится во фрейме
-//        String b = driver.findElement(By.cssSelector("[name=currency_code] [value=USD]")).getAttribute("selected");
-//        System.out.println("Значение свойства selected = " + b);
+        driver.get("http://localhost/litecart/en/");
+        String attr3 = driver.findElement(By.cssSelector("div.content h3")).getCssValue("color");
+        System.out.println("Значение свойства color = " + attr3);
+
+
 
         //wait.until(titleIs("webdriver - Поиск в Google"));
     }
