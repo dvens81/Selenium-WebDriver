@@ -1,4 +1,5 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -39,12 +40,20 @@ public class task6 {
             menu = driver.findElements(By.cssSelector("#box-apps-menu > li"));
             menu.get(i).click();
 
-            int count = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span")).size();
+            int count = driver.findElements(By.cssSelector(".docs .name")).size();
+
             if (count > 0) {
-                List<WebElement> menu2 = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
+                List<WebElement> menu2 = driver.findElements(By.cssSelector(".docs .name"));
+
                 for (int j = 0; j < menu2.size(); j++) {
-                    menu2 = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
+
+                    menu2 = driver.findElements(By.cssSelector(".docs .name"));
                     menu2.get(j).click();
+
+                    int h1 = driver.findElements(By.cssSelector("h1")).size();
+                    if (h1 < 1){
+                        break;
+                    }
                 }
             }
         }
