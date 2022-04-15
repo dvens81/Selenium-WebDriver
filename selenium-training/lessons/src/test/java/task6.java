@@ -38,6 +38,15 @@ public class task6 {
         for (int i = 0; i < menu.size(); i++) {
             menu = driver.findElements(By.cssSelector("#box-apps-menu > li"));
             menu.get(i).click();
+
+            int count = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span")).size();
+            if (count > 0) {
+                List<WebElement> menu2 = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
+                for (int j = 0; j < menu2.size(); j++) {
+                    menu2 = driver.findElements(By.cssSelector("#box-apps-menu > li#app- [class=docs] span"));
+                    menu2.get(j).click();
+                }
+            }
         }
     }
 
