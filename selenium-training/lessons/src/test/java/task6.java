@@ -21,8 +21,12 @@ public class task6 {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         //wait = new WebDriverWait(driver,10);
+    }
+
+        boolean isElementPresent(WebDriver driver, By locator) {
+        return driver.findElements(locator).size() > 0;
     }
 
     @Test
@@ -50,10 +54,11 @@ public class task6 {
                     menu2 = driver.findElements(By.cssSelector(".docs .name"));
                     menu2.get(j).click();
 
-                    int h1 = driver.findElements(By.cssSelector("h1")).size();
-                    if (h1 < 1){
-                        break;
-                    }
+                    Assert.assertTrue(isElementPresent(driver, By.cssSelector("h1")));
+//                    int h1 = driver.findElements(By.cssSelector("h1")).size();
+//                    if (h1 == 0){
+//                        break;
+//                    }
                 }
             }
         }
