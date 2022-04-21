@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
@@ -30,8 +31,8 @@ public class MyFirstTest {
     @Before
     public void  start() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание. Ждет, пока появится элемент
-        //wait = new WebDriverWait(driver,10);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание. Ждет, пока появится элемент в DOM
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @Test
