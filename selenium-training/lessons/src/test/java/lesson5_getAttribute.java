@@ -36,9 +36,6 @@ public class lesson5_getAttribute {
         String attr3 = driver.findElement(By.cssSelector("div.content h3")).getCssValue("color");
         System.out.println("Значение свойства color = " + attr3);
 
-
-
-        //wait.until(titleIs("webdriver - Поиск в Google"));
     }
 
     @After

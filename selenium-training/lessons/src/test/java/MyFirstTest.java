@@ -1,4 +1,5 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -6,6 +7,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -31,7 +33,7 @@ public class MyFirstTest {
     @Before
     public void  start() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание. Ждет, пока появится элемент в DOM
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание. Ждет, пока появится элемент в DOM
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
@@ -40,7 +42,12 @@ public class MyFirstTest {
         driver.get("http://www.google.com/");
         driver.findElement(By.name("q")).sendKeys("webdriver");
         driver.findElement(By.name("btnK")).click();
-        //wait.until(titleIs("webdriver - Поиск в Google"));
+        String title = driver.getTitle();
+        System.out.println(title);
+        wait.until(ExpectedConditions.titleIs(title));
+
+        //wait.until(titleIs(driver.getTitle()));
+        //Assert.assertEquals("webdriver - Поиск в Google", driver.getTitle()); //не работает из-за неправильной кодировки
     }
 
     @After
