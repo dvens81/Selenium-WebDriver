@@ -54,21 +54,23 @@ public class task8 {
 
         List<WebElement> zones_number = driver.findElements(By.cssSelector(".row td:nth-child(6)"));
         for (int i = 0; i < zones_number.size(); i++) {
-            driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
             zones_number = driver.findElements(By.cssSelector(".row td:nth-child(6)"));
             String attr_zones_number = zones_number.get(i).getAttribute("textContent");
+
             if (!attr_zones_number.equals("0")) {
                 List<WebElement> count = driver.findElements(By.cssSelector(".row td:nth-child(5) a"));
                 count.get(i).click();
-
                 List<WebElement> geozones = driver.findElements(By.cssSelector("#table-zones td:nth-child(3) input:not([type=text])"));
+
                 for (int j = 0; j < geozones.size(); j++) {
                     String attr_geoZones = geozones.get(j).getAttribute("value");
                     geoZones_List.add(j, attr_geoZones);
                 }
+
                 System.out.println("geoZones_List " + geoZones_List);
 
                 ArrayList<String> geoZones_sort_List = new ArrayList<>();
+
                 for (int k = 0; k < geoZones_List.size(); k++) {
                     geoZones_sort_List.add(k, geoZones_List.get(k));
                 }
@@ -77,6 +79,7 @@ public class task8 {
                 System.out.println("geoZones_sort_List " + geoZones_sort_List);
                 Assert.assertEquals(geoZones_List, geoZones_sort_List);
                 geoZones_List.clear();
+                driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
             }
         }
     }
