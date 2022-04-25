@@ -31,7 +31,8 @@ public class task8 {
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
-        driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
+        //driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
+        driver.findElement(By.cssSelector("[href*=countries]")).click();
 
         ArrayList<String> countries_List = new ArrayList<>();
         ArrayList<String> geoZones_List = new ArrayList<>();
