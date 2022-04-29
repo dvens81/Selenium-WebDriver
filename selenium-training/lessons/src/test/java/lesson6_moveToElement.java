@@ -35,6 +35,7 @@ public class lesson6_moveToElement {
                 .clickAndHold()
                 .moveToElement(items2.get(0))
                 .release()
+               // .dragAndDrop(items1.get(0), items2.get(0)) // или так
                 .perform();
     }
 

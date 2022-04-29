@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +19,7 @@ public class lesson10_EventListener {
     private EventFiringWebDriver driver;
     private WebDriverWait wait;
 
-    public static class MyListener extends AbstractWebDriverEventListener{
+    public static class MyListener extends AbstractWebDriverEventListener {
         @Override
         public void beforeFindBy(By by, WebElement element, WebDriver driver) {
             System.out.println(by);
@@ -49,6 +50,13 @@ public class lesson10_EventListener {
         driver.register(new MyListener());
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
+// Logs
+//    @Test
+//    public void getBrowserLogs() {
+//        driver.navigate().to("http://www.google.com/");
+//        System.out.println(driver.manage().logs().getAvailableLogTypes());
+//        driver.manage().logs().get("browser").forEach(l -> System.out.println(l));
+//    }
 
     @Test
     public void myFirstTest() {
