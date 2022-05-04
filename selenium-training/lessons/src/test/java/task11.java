@@ -59,6 +59,7 @@ public class task11 {
         driver.findElement(By.cssSelector("[name=email]")).sendKeys(email_unique);
 
         driver.findElement(By.cssSelector("[name=phone]")).sendKeys("+15557733");
+        driver.findElement(By.cssSelector("[name=newsletter]")).click();
         driver.findElement(By.cssSelector("[name=password]")).sendKeys("password");
         driver.findElement(By.cssSelector("[name=confirmed_password]")).sendKeys("password");
         driver.findElement(By.cssSelector("button[name=create_account]")).click();
