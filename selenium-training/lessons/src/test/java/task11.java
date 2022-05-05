@@ -6,17 +6,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class task11 {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     @Before
     public void start() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @Test
@@ -45,11 +48,21 @@ public class task11 {
         // Cпособ 2. С помощью executeScript
         //((JavascriptExecutor) driver).executeScript("arguments[0].selectedIndex = 224; arguments[0].dispatchEvent(new Event('change'))", tag_select_country);
 
+//        //Способ 3. Кликаем по селекту. Кликаем по элементу в раскрытом списке. Здесь пример локаторов c поиском начала и конца текста
+//        driver.findElement(By.cssSelector("[id ^= select2-country_code]")).click();
+//        driver.findElement(By.cssSelector(".select2-results__option[id $= US]")).click();
+
+        //Ожидание появления элемента
+        wait.until((WebDriver d) -> d.findElement(By.cssSelector("select[name=zone_code] option[value=CA]")));
+
         WebElement tag_select_zon = driver.findElement(By.cssSelector("select[name=zone_code]"));
         //String zon_list = tag_select_zon.getText();
         //System.out.println(zon_list);
         Select select_zon = new Select(tag_select_zon);
         select_zon.selectByVisibleText("California");
+
+//        // Cпособ 4. С помощью класса Select. Более простой вариант
+//        new Select(driver.findElement(By.cssSelector("select[name=zone_code]"))).selectByValue("CA");
 
         // Генерация уникальных email
         Random r = new java.util.Random();
@@ -57,6 +70,10 @@ public class task11 {
         String email_unique = s + "@mail.ru";
         //System.out.println(email_unique);
         driver.findElement(By.cssSelector("[name=email]")).sendKeys(email_unique);
+
+        // Или так
+//        String email = "email" + System.currentTimeMillis() + "@mail.ru";
+//        System.out.println(email);
 
         driver.findElement(By.cssSelector("[name=phone]")).sendKeys("+15557733");
         driver.findElement(By.cssSelector("[name=newsletter]")).click();

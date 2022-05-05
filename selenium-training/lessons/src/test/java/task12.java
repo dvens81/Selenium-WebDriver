@@ -38,7 +38,7 @@ public class task12 {
         driver.findElement(By.cssSelector("#box-apps-menu li [href*=catalog]")).click();
         driver.findElement(By.cssSelector("#content div a[href*=product]")).click();
         driver.findElement(By.cssSelector("label [value]")).click();
-        String name_Product = "New Toy 4";
+        String name_Product = "New Toy 5";
         driver.findElement(By.cssSelector(".input-wrapper [type=text]")).sendKeys(name_Product);
         driver.findElement(By.cssSelector("[name=code]")).sendKeys("12345");
         driver.findElement(By.cssSelector("[data-name=Subcategory]")).click();
