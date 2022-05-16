@@ -31,7 +31,7 @@ public class MyFirstTest {
 //    }
 
     @Before
-    public void  start() {
+    public void start() {
         driver = new FirefoxDriver();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  // Не явное ожидание. Ждет, пока появится элемент в DOM
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
