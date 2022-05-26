@@ -46,8 +46,8 @@ public class MyFirstTest {
         System.out.println(title);
         wait.until(ExpectedConditions.titleIs(title));
 
-        //wait.until(titleIs(driver.getTitle()));
-        //Assert.assertEquals("webdriver - Поиск в Google", driver.getTitle()); //не работает из-за неправильной кодировки
+        wait.until(titleIs(driver.getTitle()));
+        Assert.assertEquals("webdriver - Поиск в Google", driver.getTitle());
     }
 
     @After

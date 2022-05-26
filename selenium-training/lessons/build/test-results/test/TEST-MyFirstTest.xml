@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyFirstTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-26T07:22:15" hostname="BLACK" time="11.943">
+  <properties/>
+  <testcase name="myFirstTest" classname="MyFirstTest" time="11.943"/>
+  <system-out><![CDATA[webdriver - Поиск в Google
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+1653549736487	geckodriver	INFO	Listening on 127.0.0.1:52013
+1653549737551	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52253" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileIIeUEs"
+1653549738586	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileIIeUEs\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52253/devtools/browser/6101b5e6-ca70-43cd-afb4-9b003e686bf1
+1653549742296	Marionette	INFO	Listening on port 52090
+1653549742400	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+мая 26, 2022 11:22:22 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.google.com"
+1653549745507	Marionette	INFO	Stopped listening on port 52090
+]]></system-err>
+</testsuite>
